@@ -6,9 +6,9 @@ const Navbar = () => {
   const [show ,setShow] = useState(false);
   return (
     <nav>
-      <div className="h-20 bg-gray-100 items-center flex flex-row justify-between px-8">
+      <div className="h-20 bg-indigo-500 items-center flex flex-row justify-between px-8 drop-shadow-2xl">
         <div>
-          <h1 className=" text-2xl color-black font-bold">Logo</h1>
+          <h1 className=" text-2xl text-white font-bold">Logo</h1>
         </div>
         <div className="hidden sm:block">
           <ul className="flex flex-row gap-3 list-none ">

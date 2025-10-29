@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import {Link, useParams} from 'react-router-dom';
+import { FaCartPlus } from "react-icons/fa";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -15,34 +17,38 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap  p-10 m-auto items-center">
+    <div className="grid lg:grid-rows-1 lg:grid-flow-col lg:row-span-3 lg:p-10 p-6 lg:gap-0 gap-5 m-auto items-center ">
       {data.map((data, index) => (
-        <div
+        <Link
+        to={'/bookdetails/'+ data.id}
           key={index}
-          className="flex flex-col gap-4 border w-64 shadow-xl border-gray-400 m-4 p-4 rounded-lg"
+          className="flex flex-col border lg:w-64 w-full lg:gap-4 gap-2 m-auto shadow-xl border-gray-400  p-4 rounded-lg "
         >
           <img
             src={data.cover_image}
             alt="Book"
-            className="w-56 border border-red-500 rounded-lg h-52 object-cover transform transition-transform duration-300 hover:scale-105"
+            className="lg:w-56 w-full border border-red-500 rounded-lg h-52 object-cover transform transition-transform duration-300 hover:scale-105"
           />
           <div>
-            <h2 className="text-xl text-gray-800 font-semibold capitalize">
+            <h2 className="text-lg text-black font-semibold capitalize">
               title :- {data.title}
             </h2>
-            <p className="text-gray-700 font-normal text-lg ">
-              {" "}
-              Description :- {data.description}
-            </p>
-            <p className="text-gray-700 font-normal text-lg "> Price :- {data.price}</p>
-            <p className="text-gray-700 font-normal text-lg ">
-              {" "}
-              Discount :- {data.discount}%
-            </p>
-            <p className="text-gray-700 font-normal text-lg "> Sale :- {data.sale}</p>
-            {/* <span className="text-lg">{data.price}</span> */}
+            <div className="flex flex-row justify-between">
+            <p className="flex flex-row gap-2 items-center">
+                <span className="text-lg text-gray-900 font-semibold">₹{data.sale}</span>
+                <span className="text-xs font-normal line-through">
+                  ₹{data.price}
+                </span>
+                <span className="text-sm font-semibold text-green-800">
+                  {" "}
+                  {data.discount} % OFF
+                </span>
+              </p>
+              <span className="items-end"><FaCartPlus/></span>
           </div>
-        </div>
+
+          </div>
+        </Link>
       ))}
     </div>
   );
