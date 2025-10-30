@@ -9,7 +9,7 @@ const BookDetails = () => {
   const [bgFilled, setBgFilled] = useState(false);
   const params = useParams();
   const itemDetails = async () => {
-    let data = await fetch(`http://localhost:8000/api/books/${params.id}`);
+    let data = await fetch(`https://anwarbook.onrender.com/api/books/${params.id}`);
     let jdata = await data.json();
     // console.log(jdata)
     setItem(jdata);
@@ -20,10 +20,19 @@ const BookDetails = () => {
 
   return (
     <div className="flex flex-col lg:flex-row bg-gray-50 px-4 sm:px-6 md:px-12 lg:px-24 lg:gap-0 gap-4 pt-2">
-      <div className="sm:w-[50%] w-full bg-white flex justify-center border-r border-gray-400">
-        <img className="w-full lg:w-96 rounded-xl py-1" src={item.cover_image} alt="books" />
+      <div className="sm:w-[50%] flex flex-col items-center lg:p-4 gap-3 w-full bg-white justify-center border-r border-gray-400">
+        <div>
+          <img className="w-full lg:w-[75%] m-auto rounded-xl py-1" src={item.cover_image} alt="books" />
+        </div>
+        <div className="flex flex-row gap-5 ">
+          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_front} alt="books" />
+          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_behind} alt="books" />
+          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_top} alt="books" />
+          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_bottom} alt="books" />
+          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_side} alt="books" />
+        </div>
       </div>
-      <div className="sm:w-[50%] w-full mb-20 ">
+      <div className="sm:w-[50%] w-full min-h-[100vh] mb-20 ">
         <div className=" w-full flex flex-col gap-10 bg-white lg:p-10 px-2 ">
           <div>
             <div className="flex flex-row justify-between">

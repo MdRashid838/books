@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="grid lg:grid-rows-1 lg:grid-flow-col lg:row-span-3 lg:p-10 p-6 lg:gap-0 gap-5 m-auto items-center ">
+    <div className="grid lg:grid-flow-row lg:grid-cols-5 lg:row-span-3 lg:p-10 p-6 lg:gap-8 gap-5 m-auto items-center ">
       {data.map((data, index) => (
         <Link
         to={'/bookdetails/'+ data.id}

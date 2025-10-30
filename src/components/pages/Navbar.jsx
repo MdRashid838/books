@@ -11,17 +11,17 @@ const Navbar = () => {
           <h1 className=" text-2xl text-white font-bold">Logo</h1>
         </div>
         <div className="hidden sm:block">
-          <ul className="flex flex-row gap-3 list-none ">
-            <li className="text-lg color-black  ">
+          <ul className="flex flex-row gap-3 list-none px-4  ">
+            <li className="text-xl font-medium text-white color-black px-3  ">
               <NavLink to="/">Home</NavLink>
             </li>
-            <li className="text-lg color-black  ">
+            <li className="text-xl font-medium text-white color-black px-3  ">
               <NavLink to="/about">About</NavLink>
             </li>
-            <li className="text-lg color-black  ">
+            <li className="text-xl font-medium text-white color-black px-3  ">
               <NavLink to="/profile">Profile</NavLink>
             </li>
-            <li className="text-lg color-black  ">
+            <li className="text-xl font-medium text-white color-black px-3  ">
               <NavLink to="/logout">Logout</NavLink>
             </li>
           </ul>
