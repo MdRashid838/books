@@ -6,7 +6,7 @@ const Home = () => {
   const [data, setData] = useState([]);
 
   const dataItem = async () => {
-    let url = "http://localhost:8000/api/books/";
+    let url = "https://anwarbook.onrender.com/api/books/";
     let api = await fetch(url);
     let jdata = await api.json();
     // console.log(jdata)
