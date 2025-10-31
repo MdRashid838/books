@@ -3,13 +3,18 @@ import { useParams } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { Heart } from "lucide-react";
 import { Share2 } from "lucide-react";
+import useOnline from "./useOnline";
+import Shimmer from "./Shimmer";
 
 const BookDetails = () => {
   const [item, setItem] = useState("");
   const [bgFilled, setBgFilled] = useState(false);
+
   const params = useParams();
   const itemDetails = async () => {
-    let data = await fetch(`https://anwarbook.onrender.com/api/books/${params.id}`);
+    let data = await fetch(
+      `https://anwarbook.onrender.com/api/books/${params.id}`
+    );
     let jdata = await data.json();
     // console.log(jdata)
     setItem(jdata);
@@ -22,14 +27,38 @@ const BookDetails = () => {
     <div className="flex flex-col lg:flex-row bg-gray-50 px-4 sm:px-6 md:px-12 lg:px-24 lg:gap-0 gap-4 pt-2">
       <div className="sm:w-[50%] flex flex-col items-center lg:p-4 gap-3 w-full bg-white justify-center border-r border-gray-400">
         <div>
-          <img className="w-full lg:w-[75%] m-auto rounded-xl py-1" src={item.cover_image} alt="books" />
+          <img
+            className="w-full lg:w-[75%] m-auto rounded-xl py-1"
+            src={item.cover_image}
+            alt="books"
+          />
         </div>
         <div className="flex flex-row gap-5 ">
-          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_front} alt="books" />
-          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_behind} alt="books" />
-          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_top} alt="books" />
-          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_bottom} alt="books" />
-          <img className="max-w-20 h-24 lg:w-96 rounded-lg py-1" src={item.cover_side} alt="books" />
+          <img
+            className="max-w-20 h-24 lg:w-96 rounded-lg py-1"
+            src={item.cover_front}
+            alt="books"
+          />
+          <img
+            className="max-w-20 h-24 lg:w-96 rounded-lg py-1"
+            src={item.cover_behind}
+            alt="books"
+          />
+          <img
+            className="max-w-20 h-24 lg:w-96 rounded-lg py-1"
+            src={item.cover_top}
+            alt="books"
+          />
+          <img
+            className="max-w-20 h-24 lg:w-96 rounded-lg py-1"
+            src={item.cover_bottom}
+            alt="books"
+          />
+          <img
+            className="max-w-20 h-24 lg:w-96 rounded-lg py-1"
+            src={item.cover_side}
+            alt="books"
+          />
         </div>
       </div>
       <div className="sm:w-[50%] w-full min-h-[100vh] mb-20 ">
@@ -40,7 +69,10 @@ const BookDetails = () => {
                 {item.books_name}
               </p>
               <p className="flex flex-row gap-2 text-sm">
-                <button className=" flex justify-center border rounded-full h-10 w-10 text-center items-center bg-gray-100" onClick={() => setBgFilled(!bgFilled)}>
+                <button
+                  className=" flex justify-center border rounded-full h-10 w-10 text-center items-center bg-gray-100"
+                  onClick={() => setBgFilled(!bgFilled)}
+                >
                   <Heart
                     className={`w-5 h-5 ${
                       bgFilled
@@ -54,7 +86,7 @@ const BookDetails = () => {
                 </button>
               </p>
             </div>
-            <div >
+            <div>
               <div className="flex flex-col lg:flex-row gap-2 text-lg font-normal text-gray-500">
                 <span className="flex flex-row gap-2">
                   <p>Author:</p>
@@ -105,23 +137,6 @@ const BookDetails = () => {
               Buy Now
             </button>
           </div>
-
-          {/* <p>id :- {item.id}</p> */}
-          {/* <p>Name :- {item.books_name}</p> */}
-          <p></p>
-          {/* <p>Pages :- {item.total_pages}</p> */}
-          {/* <p>Rating :- {item.ratings} Star</p> */}
-          {/* <p>Price Rs :- {item.price} $</p> */}
-          {/* <p>Discount :- {item.discount} %</p> */}
-          {/* <p>Sale Price :- {item.sale} $</p> */}
-          {/* <p>Description :- {item.description}</p> */}
-          {/* <p>Author  :- {item.author_name}</p> */}
-          {/* <p>Category :- {item.category_name}</p> */}
-          {/* <p>Is_Available : -{item.availablity}</p> */}
-          {/* <p>Language :- {item.language}</p> */}
-          {/* <p>Cover Binding :- {item.binding_types}</p> */}
-          {/* <p>Edition Type :- {item.edition}</p> */}
-          {/* <p>Date of Publication :- {item.publication_date}</p>  */}
         </div>
       </div>
     </div>
