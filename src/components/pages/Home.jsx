@@ -4,6 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [loading,setLoading] = useState(false)
 
   const dataItem = async () => {
     let url = "https://anwarbook.onrender.com/api/books/";
@@ -11,13 +12,18 @@ const Home = () => {
     let jdata = await api.json();
     // console.log(jdata)
     setData(jdata);
+    setLoading()
   };
   useEffect(() => {
     dataItem();
   }, []);
 
+  if(loading)
+    return <div>
+      loading......
+    </div>
   return (
-    <div className="grid lg:grid-flow-row lg:grid-cols-5 lg:row-span-3 lg:p-10 p-6 lg:gap-8 gap-5 m-auto items-center ">
+    <div className="grid lg:grid-flow-row lg:grid-cols-5 md:grid-cols-3 lg:row-span-3 lg:p-10 p-6 lg:gap-8 gap-5 m-auto items-center ">
       {data.map((data, index) => (
         <Link
         to={'/bookdetails/'+ data.id}
@@ -27,7 +33,7 @@ const Home = () => {
           <img
             src={data.cover_image}
             alt="Book"
-            className="lg:w-56 w-full border border-red-500 rounded-lg h-52 object-cover transform transition-transform duration-300 hover:scale-105"
+            className="lg:w-56 w-full border border-red-500 rounded-lg lg:h-52 h-full object-cover transform transition-transform duration-300 hover:scale-105"
           />
           <div>
             <h2 className="text-lg text-black font-semibold capitalize">
