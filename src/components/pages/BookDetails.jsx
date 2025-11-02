@@ -9,17 +9,19 @@ const BookDetails = () => {
   const [bgFilled, setBgFilled] = useState(false);
   const params = useParams();
 
-    const images = [
+  const images = [
     item.cover_image,
     item.cover_front,
     item.cover_behind,
     item.cover_top,
     item.cover_bottom,
-    item.cover_side
+    item.cover_side,
   ];
   const [activeImage, setActiveImage] = useState(images[0]);
   const itemDetails = async () => {
-    let data = await fetch(`https://anwarbook.onrender.com/api/books/${params.id}`);
+    let data = await fetch(
+      `https://anwarbook.onrender.com/api/books/${params.id}`
+    );
     let jdata = await data.json();
     // console.log(jdata)
     setItem(jdata);
@@ -31,22 +33,28 @@ const BookDetails = () => {
   return (
     <div className="flex flex-col lg:flex-row bg-gray-50 px-4 sm:px-6 md:px-12 lg:px-24 lg:gap-0 gap-4 pt-2">
       <div className="sm:w-[50%] flex flex-col items-center lg:p-4 gap-3 w-full bg-white justify-center border-r border-gray-400">
-    <div className="flex flex-col items-center">
-      <img src={activeImage} alt="active" className="w-64 h-64 object-cover rounded-xl mb-4" />
-      <div className="flex gap-2">
-        {images.map((img, index) => (
+        <div className="flex flex-col items-center">
           <img
-            key={index}
-            src={img}
-            alt=""
-            className={`w-16 h-16 rounded cursor-pointer border-2 ${
-              activeImage === img ? 'border-blue-500 scale-110' : 'border-transparent'
-            }`}
-            onClick={() => setActiveImage(img)}
+            src={activeImage}
+            alt="active"
+            className="w-64 h-64 object-cover rounded-xl mb-4"
           />
-        ))}
-      </div>
-    </div>
+          <div className="flex gap-2">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt=""
+                className={`w-16 h-16 rounded cursor-pointer border-2 ${
+                  activeImage === img
+                    ? "border-blue-500 scale-110"
+                    : "border-transparent"
+                }`}
+                onClick={() => setActiveImage(img)}
+              />
+            ))}
+          </div>
+        </div>
         {/* <div>
           <img className="w-full lg:w-[75%] m-auto rounded-xl py-1" src={item.cover_image} alt="books" />
         </div>
@@ -66,7 +74,10 @@ const BookDetails = () => {
                 {item.books_name}
               </p>
               <p className="flex flex-row gap-2 text-sm">
-                <button className=" flex justify-center border rounded-full h-10 w-10 text-center items-center bg-gray-100" onClick={() => setBgFilled(!bgFilled)}>
+                <button
+                  className=" flex justify-center border rounded-full h-10 w-10 text-center items-center bg-gray-100"
+                  onClick={() => setBgFilled(!bgFilled)}
+                >
                   <Heart
                     className={`w-5 h-5 ${
                       bgFilled
@@ -80,7 +91,7 @@ const BookDetails = () => {
                 </button>
               </p>
             </div>
-            <div >
+            <div>
               <div className="flex flex-col lg:flex-row gap-2 text-lg font-normal text-gray-500">
                 <span className="flex flex-row gap-2">
                   <p>Author:</p>
