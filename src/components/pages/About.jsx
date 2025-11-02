@@ -14,7 +14,7 @@ const About = () => {
   const [state, dispatch] = useReducer(reducer, emptyData);
   console.log(state);
   return (
-    <div className="flex flex-col justify-center item-center m-auto max-w-[60%] bg-gray-50">
+    <div className="flex flex-col justify-center border-2  h-screen item-center m-auto max-w-[60%] bg-gray-50">
       <div className="flex flex-col items-center py-8 gap-5">
         <h1 className="text-xl font-bold text-black">About Form</h1>
         <input

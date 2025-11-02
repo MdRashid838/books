@@ -3,7 +3,7 @@ import { FaCartPlus } from "react-icons/fa";
 const Shimmer = () => {
   return (
     // Outer Grid Container
-    <div className="grid lg:grid-flow-row lg:grid-cols-5 lg:row-span-3 lg:p-10 p-6 lg:gap-8 gap-5 m-auto items-center">
+    <div className="grid lg:grid-flow-row lg:grid-cols-5 lg:row-span-3 lg:p-10 p-6 lg:gap-8 gap-5 m-auto items-center h-screen">
       {/* Generates 20 Placeholder Cards */}
       {Array(25)
         .fill("")
